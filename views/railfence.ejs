@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/railfence.css" rel="stylesheet">
+    <title>Rail Fence Cipher</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="heading">
+                <img class="nav-img" src="img/private-key.png">
+                <h1>Rail Fence Cipher</h1>
+            </div>
+            <div class="nav-btn">
+                <button class="btn" onclick="history.back()">Go Back</button>
+            </div>
+        </div>
+
+        <div class="hero">
+            <div class="about">
+                <p class="hero-text">
+                    The <strong>Rail Fence Cipher</strong> is a simple transposition cipher. Instead of replacing letters like Caesar, it rearranges the text into a zig-zag pattern across multiple "rails" and then reads it row by row. The number of rails
+                    (key) controls how the letters are distributed.
+                </p>
+                <p class="hero-text">Example (Key = 3):</p>
+                <p> Plaintext: <code>HELLO WORLD</code></p>
+                <pre>H       O       L
+E   L   W   R   D
+L       O</pre>
+                <p> Ciphertext: <code>HOLELWRDLO</code></p>
+            </div>
+
+            <div class="layout">
+                <div class="col">
+                    <h1 class="headings">Enter Text</h1>
+                    <textarea id="railfence-text" name="input" rows="20" cols="40"></textarea>
+                </div>
+                <div id="mid" class="col">
+                    <h2 id="input-head">Rails</h2>
+                    <input type="number" id="rail" name="quantity" value="3" min="1" max="500">
+
+                    <h2 id="input-head">Offset</h2>
+                    <input type="number" id="offset" name="quantity" value="0" min="0" max="500">
+
+                    <button class="opt-btn" type="button" id="encrypt-btn">Encrypt</button>
+                    <button class="opt-btn" type="button" id="decrypt-btn">Decrypt</button>
+                </div>
+                <div class="col">
+                    <h1 class="headings">Output</h1>
+                    <textarea id="railfence-output" name="output" rows="20" cols="40" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function railfenceEncrypt(text, rails, offset) {
+            if (rails <= 1) return text; // no encryption if rails = 1
+
+            let railset = Array.from({
+                length: rails
+            }, () => []);
+            let rail = offset % rails; // apply offset
+            let dirDown = true;
+
+            for (let char of text) {
+                railset[rail].push(char);
+
+                if (rail === 0) dirDown = true;
+                else if (rail === rails - 1) dirDown = false;
+
+                rail += dirDown ? 1 : -1;
+            }
+
+            return railset.flat().join("");
+        }
+
+        function railfenceDecrypt(cipher, rails, offset) {
+            if (rails <= 1) return cipher;
+
+            // pattern of rails
+            let pattern = [];
+            let rail = offset % rails;
+            let dirDown = true;
+
+            for (let i = 0; i < cipher.length; i++) {
+                pattern.push(rail);
+                if (rail === 0) dirDown = true;
+                else if (rail === rails - 1) dirDown = false;
+                rail += dirDown ? 1 : -1;
+            }
+
+            // fill rails
+            let railset = Array.from({
+                length: rails
+            }, () => []);
+            let idx = 0;
+            for (let r = 0; r < rails; r++) {
+                for (let i = 0; i < pattern.length; i++) {
+                    if (pattern[i] === r) {
+                        railset[r].push(cipher[idx++]);
+                    }
+                }
+            }
+
+            // rebuild text
+            let result = "";
+            let counters = Array(rails).fill(0);
+            for (let r of pattern) {
+                result += railset[r][counters[r]++];
+            }
+            return result;
+        }
+
+        document.getElementById("encrypt-btn").addEventListener("click", function() {
+            let text = document.getElementById("railfence-text").value;
+            let rails = parseInt(document.getElementById("rail").value);
+            let offset = parseInt(document.getElementById("offset").value);
+            document.getElementById("railfence-output").value = railfenceEncrypt(text, rails, offset);
+        });
+
+        document.getElementById("decrypt-btn").addEventListener("click", function() {
+            let text = document.getElementById("railfence-text").value;
+            let rails = parseInt(document.getElementById("rail").value);
+            let offset = parseInt(document.getElementById("offset").value);
+            document.getElementById("railfence-output").value = railfenceDecrypt(text, rails, offset);
+        });
+    </script>
+</body>
+
+</html>

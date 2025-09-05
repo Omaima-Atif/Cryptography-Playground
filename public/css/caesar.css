@@ -1,0 +1,215 @@
+.container {
+    margin: 0.2em;
+    background-image: url("/img/bg-caesar.jpg");
+    height: 100%;
+    padding-bottom: 8%;
+    border: 1px solid rgb(189, 8, 159);
+    /* Example inset shadow */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.nav-bar {
+    display: flex;
+    font-size: 1.2rem;
+    background-color: rgb(162, 135, 188);
+    flex-wrap: wrap;
+    border-radius: 2%;
+    justify-content: space-between;
+    padding-right: 30px;
+    align-items: center;
+    color: aliceblue;
+    border: 1px solid rgb(189, 8, 159);
+    /* Example inset shadow */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+.heading h1 {
+    margin: 0;
+    line-height: 1;
+    position: relative;
+    top: 2px;
+    /* tweak until it looks visually centered */
+}
+
+.nav-img {
+    width: 5em;
+    border-radius: 2%;
+    padding: 1rem 1rem;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+}
+
+.btn:hover {
+    background-color: rgb(221, 138, 207);
+}
+
+.btn {
+    height: 4.5rem;
+    min-width: 6em;
+    background-color: rgb(145, 93, 193);
+    font-size: 1.4rem;
+    align-items: center;
+    border-radius: 8%;
+    border: none;
+    cursor: pointer;
+    color: aliceblue;
+    border: 1px solid rgb(189, 8, 159);
+    /* Example inset shadow */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+
+/*header ending*/
+
+.about {
+    max-width: 1200px;
+    /* limit width */
+    margin: 5rem auto;
+    /* center horizontally */
+    text-align: center;
+    font-size: 1.65rem;
+    color: azure;
+    padding: 2rem;
+    border-radius: 10px;
+    /* optional, rounded corners */
+    background-color: rgb(162, 135, 188);
+    border: 1.5px solid rgb(189, 8, 159);
+    /* Example inset shadow */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 5fr 2fr 5fr;
+    padding: 5%;
+    column-gap: 10%;
+    min-width: 0;
+    /* 🔑 prevents grid from overflowing */
+    overflow-x: auto;
+    /* safe for small screens */
+}
+
+.col {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+}
+
+textarea {
+    resize: none;
+    font-size: 1.5rem;
+}
+
+textarea {
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: pink #f1f1f1;
+    border: 1.5px solid rgb(189, 8, 159);
+    /* Example inset shadow */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+    /* Firefox */
+}
+
+textarea::-webkit-scrollbar {
+    width: 8px;
+    /* Chrome, Edge, Safari */
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: pink;
+    border-radius: 10px;
+}
+
+#caesar-output {
+    cursor: not-allowed;
+}
+
+.opt-btn {
+    min-width: 6em;
+    min-height: 2.5em;
+    font-size: 1.75rem;
+    background-color: blueviolet;
+    padding: 3%;
+    border-radius: 10%;
+    cursor: pointer;
+    color: antiquewhite;
+    border: 0.5px solid rgb(189, 8, 159);
+    /* Example inset shadow */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+}
+
+.opt-btn:hover {
+    background-color: rgb(223, 98, 202);
+    transform: scale(1.1);
+}
+
+#mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1.5em;
+}
+
+.headings {
+    color: white;
+    background-color: rgb(162, 135, 188);
+    border: 1.5px solid rgb(189, 8, 159);
+    /* Example inset shadow */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+select {
+    appearance: none;
+    outline: 0;
+    background: rgb(162, 135, 188);
+    width: 5em;
+    height: 10%;
+    color: rgb(244, 241, 241);
+    cursor: pointer;
+    border: 1.5px solid rgb(189, 8, 159);
+    /* Example inset shadow */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 2%;
+    margin-top: 0%;
+}
+
+#sel-head {
+    color: #6c0575;
+    margin-bottom: 0%;
+    font-size: 2rem;
+}
+
+select::-webkit-scrollbar {
+    width: 8px;
+    /* Chrome, Edge, Safari */
+}
+
+select::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+select::-webkit-scrollbar-thumb {
+    background-color: pink;
+    border-radius: 10px;
+}

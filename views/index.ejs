@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography Playground</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="heading">
+                <img class="nav-img" src="img/private-key.png">
+                <h1>Cryptography Playground</h1>
+
+            </div>
+
+            <div class="nav-btn">
+                <button class="btn" onclick="history.back()">Go Back</button>
+            </div>
+
+
+
+
+
+        </div>
+
+        <div class="hero">
+            <div class="about">
+                <p class="hero-text">Cryptography is like secret writing for the digital world. It’s a way of changing normal information into a hidden code so that only the right people can understand it. For example, when you send a message or log in to a website, cryptography
+                    helps keep your data safe from hackers or strangers. It’s used everywhere — from protecting your passwords and bank details to securing apps, emails, and even cryptocurrencies. In short, cryptography makes sure your information stays
+                    private and trusted while you use the internet.</p>
+            </div>
+
+            <div class="carousel">
+                <div class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide">
+                                <img class="car-img" src="img/cover.jpg">
+                                <form method="post" action="/caesar-cipher">
+                                    <button id="caesar" class="car-btn">Caesar Cipher</button>
+                                </form>
+
+                            </li>
+                            <li class="glide__slide">
+                                <img class="car-img" src="img/cover 2.jpg">
+                                <form method="post" action="/rail-fence-cipher">
+                                    <button id="rail" class="car-btn">Rail Fence Cipher</button>
+                                </form>
+
+                            </li>
+                            <li class="glide__slide">
+                                <img class="car-img" src="img/cover 3.jpg">
+                                <form method="post" action="/des-ecb">
+                                    <button id="des" class="car-btn">DES ECB</button>
+                                </form>
+                            </li>
+                            <li class="glide__slide">
+                                <img class="car-img" src="img/cover 4.jpg">
+                                <form method="post" action="/aes256">
+                                    <button id="aes" class="car-btn">AES 256</button>
+                                </form>
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+    <script>
+        new Glide('.glide', {
+            type: 'carousel',
+            perView: 3,
+            focusAt: 'center',
+            hoverpause: true,
+            gap: 20,
+            animationDuration: 800,
+            animationTimingFunc: 'ease-in-out',
+            autoplay: 1500
+        }).mount();
+    </script>
+
+
+</body>
+
+</html>

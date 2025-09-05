@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/caesar.css" rel="stylesheet">
+    <title>DES ECB</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="heading">
+                <img class="nav-img" src="img/private-key.png">
+                <h1>DES ECB</h1>
+
+            </div>
+
+            <div class="nav-btn">
+                <button class="btn" onclick="history.back()">Go Back</button>
+            </div>
+
+
+
+
+
+        </div>
+        <div class="hero">
+            <div class="about">
+                <p class="hero-text">Data Encryption Standard (DES) is a symmetric-key algorithm for encrypting digital data. It works on 64-bit blocks of plaintext and transforms them into 64-bit blocks of ciphertext using a 56-bit secret key. DES uses a series of permutations
+                    and substitutions arranged in a Feistel network over 16 rounds, making the data secure by mixing the key with the plaintext in multiple steps.</p>
+
+                <One class="hero-text">One of the simplest modes of using DES is Electronic Codebook (ECB). In ECB mode, the plaintext is split into fixed-size blocks, and each block is encrypted independently with the same key. While this makes ECB easy to implement and efficient,
+                    it also has a weakness: identical plaintext blocks produce identical ciphertext blocks, which can reveal patterns in the data. Because of this, ECB is best for short or pattern-free data, but not recommended for sensitive or large-scale
+                    encryption.</p>
+            </div>
+
+            <div class="layout">
+                <div class="col">
+                    <h1 class="headings">Enter Text</h1>
+                    <textarea id="caesar-text" name="input" rows="20" cols="40"></textarea>
+                </div>
+                <div id="mid" class="col">
+                    <h2 id="sel-head">Shift Value</h2>
+                    <select id="shift" name="shift">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    </select>
+
+                    <button class="opt-btn" type="button" id="encrypt-btn">Encrypt</button>
+                    <button class="opt-btn" type="button" id="decrypt-btn">Decrypt</button>
+                </div>
+                <div class="col">
+                    <h1 class="headings">Output</h1>
+                    <textarea id="caesar-output" name="output" rows="20" cols="40" readonly></textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script></script>
+
+
+
+</body>
+
+</html>
